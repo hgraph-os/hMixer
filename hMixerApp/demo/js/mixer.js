@@ -90,7 +90,7 @@ Defaults = D = {
     },
     bound_inner_circle : {
         "r"    : 5,
-        "fill" : "#80994f",
+        "fill" : "#97be8c",
         "cy"   : 0,
         "cx"   : 0
     },
@@ -388,7 +388,7 @@ Metric.layerPrep = (function () {
  * Prepares the document to handle "mousemove" events 
 */    
 _startDrag = function ( evt ) {
-    if(!readOnly){
+    if(!readOnly || _interactionState.activeE == "day"){
         var metric           = _interactionState.metric,
             xscale           = metric.ref.xscale,
             initialRelativeX = d3.event.pageX - metric.dom.container.offsetLeft,
@@ -659,6 +659,8 @@ _doDrag = function ( evt ) {
         case "day" :
         	_moveDaily.call(metric, relativeLeft);
         	value = metric.pub.dayvalue;
+		    console.log($('#metric' + metric.pub.name.replace(/\s/g, "")));
+		    $('#metric' + metric.pub.name.replace(/\s/g, "")).val(value);
         	break;
         case "point" :
             _movePoint.call( metric, relativeLeft, relativeTop );
@@ -669,6 +671,8 @@ _doDrag = function ( evt ) {
     if (isNaN(value)){
 		value = 0;    
     }
+    
+    
     console.log(graph.getIdByLabel(metric.pub.name));
     graph.updatePoint(graph.getIdByLabel(metric.pub.name), {
 		score: graph.calculateScoreFromValue(metric.pub, value),
@@ -698,7 +702,6 @@ _endDrag = function ( evt ) {
     	if(_interactionState.over === false)
     		$(dom.dayInputButton.node()).hide();
     	
-    
     /* clear out states */
     setTimeout(function () {
         _whipeInteractionState( true );
@@ -811,6 +814,9 @@ _dailySubmit = function ( ) {
     metric.pub.dayvalue = value;
     
     metric.refreshInput( );
+    
+    console.log(value);
+    $('#metric' + metric.pub.name.replace(/\s/g, "")).val(value);
     
     graph.updatePoint(graph.getIdByLabel(metric.pub.name), {
 		score: graph.calculateScoreFromValue(metric.pub, value),

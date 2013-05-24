@@ -233,7 +233,6 @@ $.ajax({
 		console.log('jqXHR readyState = 4');
 
    			if(jqXHR.status == 200){
-   				
 				var str = jqXHR.responseText;
 				var json = $.parseJSON(str);
 				var factors_array = [];
@@ -283,6 +282,9 @@ $.ajax({
 				}
 				graph.initialize();
 				$('.g-toggle').on ('click', function(){
+					graph.zeroGraph();
+				});
+				$(document.body).on('click', '.main-nav a', function(){
 					graph.zeroGraph();
 				});
 				$('.label').remove;
