@@ -90,7 +90,7 @@ Defaults = D = {
     },
     bound_inner_circle : {
         "r"    : 5,
-        "fill" : "#80994f",
+        "fill" : "#97be8c",
         "cy"   : 0,
         "cx"   : 0
     },
