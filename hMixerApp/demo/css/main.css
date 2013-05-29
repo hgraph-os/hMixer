@@ -643,28 +643,36 @@ table th[class*="span"],
 	background: #609C4F;
 }
 .daily_input_span{
-	width: 95%;
+	padding-left: 10px;
+	width: 80%;
 	height: 25px;
+	font-size: 15px;
 	border: solid 1px #9d9f9f;
 	border-radius: 5px;
+	display: inline-block;
 }
 .daily_name{
+	display: block;
 	color: #3c3f3d;
 	float: left;
 	margin-left: 20px;
 	margin-top: 15px;
 }
 .daily_title{
+	display: block;
 	color: #3c3f3d;
 	float: left;
 	margin-left: 20px;
 }
-.daily_label{
+section.config article.demographics div.block span.daily_label{
+	display: inline-block;
+	font-size: 20px;
 	position: relative;
-	top: -26px;
+	top: -24px;
 	text-align: right;
 	float: right;
 	right: 30px;
+	min-width: 40px
 }
 .header{
 	background: #EBECED;

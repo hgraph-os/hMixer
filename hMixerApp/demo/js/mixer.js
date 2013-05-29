@@ -36,7 +36,7 @@
 //
 Defaults = D = {
     boundary_flags   : [false, false],
-    form_class       : "form.submit-form",
+    form_class       : "div.submit-form",
     healthy_range    : [50, 80],
     total_range      : [0, 100],
     weight           : 1,
@@ -796,7 +796,7 @@ _dailySubmit = function ( ) {
         input  = d3.select(this),
         metric = _interactionState.metric,
         value  = parseFloat( input.node().value );
-    
+    evt.preventDefault
     if( code !== 13 && code !== 9){ return; } 
     
     if (code === 9) {
@@ -1866,8 +1866,11 @@ _renderGenderData = function ( ){
         
         /* push the stripped metric into the hMetrics array */
         metrics.push( metric );
-        list.append('<span class="daily_name">' + metric.pub.name + '</span><br /><span><input  class="daily_input_span" id="metric' + metric.pub.name.replace(/\s/g, "") + '" value="' + metric.pub.dayvalue + '"/><span class="daily_label">' + metric.pub.unitlabel + '</span></span><br />');
+        list.append('<span class="daily_name">' + metric.pub.name + '</span><input  class="daily_input_span" id="metric' + metric.pub.name.replace(/\s/g, "") + '" value="' + metric.pub.dayvalue + '"/><span id="label' + metric.pub.name.replace(/\s/g, "") + '" class="daily_label">' + metric.pub.unitlabel + '</span>');
        	metric.dom.sideDayInput = d3.select('#metric' + metric.pub.name.replace(/\s/g, ""));
+       	$('#label' + metric.pub.name.replace(/\s/g, "")).on('click', function(ev){
+       		$('#metric' + $(this).attr('id').substring(5)).focus();
+       	});
        	$(document).trigger(('created'+metric.pub.name).replace(/\s/g, ""));
     }
 	$('section.config').css('height', $('section.main').height());
