@@ -21,9 +21,16 @@ class TestsController < ApplicationController
   def getuser
     begin
       @users = User.where(:email => params[:email])
-      @submissions = Submission.find(Submission.where(:user_id => @users[0].id)[0].id, :include => [:user, :contributions => [:metric, :demographic]])
-      @userdata = submission_to_userdata(@submissions, @users)
-      @userdata_json = @userdata.to_json()
+      puts "above"
+      puts @users.empty?
+      puts "below"
+      if @users.empty?
+        render :status => 500
+      else
+        @submissions = Submission.find(Submission.where(:user_id => @users[0].id)[0].id, :include => [:user, :contributions => [:metric, :demographic]])
+        @userdata = submission_to_userdata(@submissions, @users)
+        @userdata_json = @userdata.to_json()
+      end
     rescue RuntimeError    
     end
   end
