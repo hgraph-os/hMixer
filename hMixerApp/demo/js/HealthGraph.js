@@ -188,9 +188,9 @@ HGraph.prototype.initialize = function() {
 	                      .text(this.calculateHealthScore());
 
 	// Center the score
-	this.overalltxt
-		.attr('x', 0 - (this.overalltxt[0][0].offsetWidth / 2))
-		.attr('y', this.overalltxt[0][0].offsetHeight / 3);
+	this.overalltxt 
+		.attr('x', - (this.overalltxt.node().getBBox().width / 2)) 
+		.attr('dy', '0.5ex');
 
 
 	// Figure out how many points there should be
