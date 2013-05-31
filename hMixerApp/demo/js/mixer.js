@@ -283,7 +283,7 @@ Utils = U = {
                 
                 switch (style) {
                     case "log" : 
-                        _log.call(_console, "[log: " + err + "]");
+                      //  _log.call(_console, "[log: " + err + "]");
                         break;
                     case "dir" :
                         _dir.call(_console, err);
@@ -642,7 +642,6 @@ _doDrag = function ( evt ) {
         value 		 = metric.pub.dayvalue,
         relativeLeft = mouseLeft - metric.dom.container.offsetLeft,
         relativeTop  = mouseTop - metric.dom.container.offsetTop;
-    console.log(metric);
     switch ( activeE ) {
         case "lb" :
             _moveLeftBound.call( metric, relativeLeft ); 
@@ -659,7 +658,6 @@ _doDrag = function ( evt ) {
         case "day" :
         	_moveDaily.call(metric, relativeLeft);
         	value = metric.pub.dayvalue;
-		    console.log($('#metric' + metric.pub.name.replace(/\s/g, "")));
 		    $('#metric' + metric.pub.name.replace(/\s/g, "")).val(value);
         	break;
         case "point" :
@@ -667,13 +665,11 @@ _doDrag = function ( evt ) {
         default : 
             break;
     };
-    console.log(value);
     if (isNaN(value)){
 		value = 0;    
     }
     
     
-    console.log(graph.getIdByLabel(metric.pub.name));
     graph.updatePoint(graph.getIdByLabel(metric.pub.name), {
 		score: graph.calculateScoreFromValue(metric.pub, value),
 		value: value + ' ' + metric.pub.unitlabel,
@@ -697,7 +693,6 @@ _endDrag = function ( evt ) {
     	d3.select(document).on("touchmove", null).on("touchend", null); // remove event listeners
     else
     	d3.select(document).on("mousemove", null).on("mouseup", null); // remove event listeners
-    console.log(dom);
     if (_interactionState.activeE === "day")
     	if(_interactionState.over === false)
     		$(dom.dayInputButton.node()).hide();
@@ -764,7 +759,6 @@ _dailyKeymanager = function ( ) {
     if(code >= 96 && code <= 105) {
     	isChar = isNaN( parseInt( String.fromCharCode(code-48), 10));
     }
-    console.log(code);
     /* only allow numbers, enter, and backspace */
     if( (code < 37 && code <= 40) && code !== 190 && code !== 8 && code !== 9 && code !== 13 && isChar ){ 
         return evt.preventDefault && evt.preventDefault(); 
@@ -772,8 +766,6 @@ _dailyKeymanager = function ( ) {
     if(code === 9)
     {
     	lastNode = d3.select(this);
-    	console.log(lastState);
-    	console.log(_interactionState.metric.pub)
     }
     
  /*   if (code === 9) {
@@ -803,7 +795,6 @@ _dailySubmit = function ( ) {
     	input = lastNode;
     	value = parseFloat( input.node().value );
         metric = lastState.metric;
-        console.log(metric.pub);
     }
     
     value = ( isNaN(value) ) ? 0 : value;
@@ -815,7 +806,6 @@ _dailySubmit = function ( ) {
     
     metric.refreshInput( );
     
-    console.log(value);
     $('#metric' + metric.pub.name.replace(/\s/g, "")).val(value);
     
     graph.updatePoint(graph.getIdByLabel(metric.pub.name), {
@@ -1673,44 +1663,48 @@ _genderToggle = function ( ) {
         gen = d3.select( this ).attr("data-gender");
         //par = d3.select( this.parentNode ).select("button.active").classed("active", false);
     //console.log($('.gender').find('button.active svg').get());
-    _finished += 50;
-    if (_finished > 100)
-    	_finished = 100;
-    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
-    		'x' : '-5',
-    		'y' : '9',
-    		'width' : '5',
-    		'height' : '9',
-    		'fill' : 'green',
-    		'stroke' : 'none',
-    		'stroke-width': '1',
-    		'transform' : 'rotate(-45)'
-    	});
-    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
-    		'x' : '13',
-    		'y' : '-11',
-    		'width' : '5',
-    		'height' : '13',
-    		'fill' : 'green',
-    		'stroke' : 'none',
-    		'stroke-width': '1',
-    		'transform' : 'rotate(45)'
-    	});
-    $('.gender').find('button.active').removeClass('active');
-    d3.select(this).classed("active", true);
-  	$('.g-title dt').text(_finished + '% Complete')
-    //hSavedData[hGenderIndex].gender = (gen === "male") ? "female" : "male";
-    //hSavedData[hGenderIndex].metrics = hMetrics;
-    for(var i = 0; i < hSavedData[hGenderIndex].metrics.length; i++)
-    {
-   	    hSavedData[hGenderIndex].metrics[i].name = hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length].name
-   	    for(var j in hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length])
-   	    	if (j != 'name')
-   	    		hSavedData[hGenderIndex].metrics[i].features[j] = hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length][j]		
-    }
-    hGenderIndex = (gen === "male") ? 0 : 1;
-    _renderGenderData( );
-    
+   	if (hGenderIndex != (gen === "male") ? 0 : 1) {
+	    _finished += 50;
+	    if (_finished > 100)
+	    	_finished = 100;
+	   	if(!$('.gender button.active').hasClass('alreadyChecked')) {
+		    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
+		    		'x' : '-5',
+		    		'y' : '9',
+		    		'width' : '5',
+		    		'height' : '9',
+		    		'fill' : 'green',
+		    		'stroke' : 'none',
+		    		'stroke-width': '1',
+		    		'transform' : 'rotate(-45)'
+		    	});
+		    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
+		    		'x' : '13',
+		    		'y' : '-11',
+		    		'width' : '5',
+		    		'height' : '13',
+		    		'fill' : 'green',
+		    		'stroke' : 'none',
+		    		'stroke-width': '1',
+		    		'transform' : 'rotate(45)'
+		    	});
+		    $('.gender button.active').addClass('alreadyChecked');
+	   	}
+	    $('.gender').find('button.active').removeClass('active');
+	    d3.select(this).classed("active", true);
+	  	$('.g-title dt').text(_finished + '% Complete')
+	    //hSavedData[hGenderIndex].gender = (gen === "male") ? "female" : "male";
+	    //hSavedData[hGenderIndex].metrics = hMetrics;
+	    for(var i = 0; i < hSavedData[hGenderIndex].metrics.length; i++)
+	    {
+	   	    hSavedData[hGenderIndex].metrics[i].name = hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length].name
+	   	    for(var j in hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length])
+	   	    	if (j != 'name')
+	   	    		hSavedData[hGenderIndex].metrics[i].features[j] = hMetrics[i + hGenderIndex * hSavedData[hGenderIndex].metrics.length][j]		
+	    }
+	    hGenderIndex = (gen === "male") ? 0 : 1;
+   	}
+	_renderGenderData( );
     return ( evt.preventDefault && evt.preventDefault() ) ? false : false;
 };
 
@@ -1822,7 +1816,6 @@ _setOptions = function ( options ) {
     D.total_range     = options.total_range || D.total_range;        // total range 
     D.form_class      = options.form_class || D.form_class;          // form class
     readOnly          = options.read_only;
-    console.log("ReadOnly is "+readOnly);
     
     /* remove text selection (highlighting) */
     if( options.allowTextSelection === false ){
@@ -1839,7 +1832,6 @@ _setOptions = function ( options ) {
  */
 _renderGenderData = function ( ){
     var i, j, metric, gender, mlist, metrics;
-    console.log(hSavedData);
 	gender  = hSavedData[hGenderIndex].gender;  // which gender is this list
 	mlist   = hSavedData[hGenderIndex].metrics; // get the metric list
     metrics = [ ];                                 // reset metric array
@@ -1850,7 +1842,6 @@ _renderGenderData = function ( ){
     hMetricIndex = 0;
     
     var list = $('.block.middle.height');
-    console.log(list);
     list.html('');
     list.append('<span class="daily_title">Patient Synthesizer</span><br /><br />')
     /* loop through the metrics */        

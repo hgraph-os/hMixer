@@ -78,8 +78,6 @@ $(window).ready(joy = $('#joyRideTipContent').joyride({
 			$('.joyride-expose-wrapper').hide();
 		}
 		if (index == 10) {
-			console.log(index);
-			console.log(tip);
 			$(window).scrollTop(0);
 		}
 	},
@@ -226,11 +224,7 @@ $.ajax({
 	dataType: 'json',
 	async: true,
 	complete: function(jqXHR) {
-		console.log('fillData complete, jqXHR readyState is ' + jqXHR.readyState);
-
 		if(jqXHR.readyState === 4) {
-
-		console.log('jqXHR readyState = 4');
 
    			if(jqXHR.status == 200){
 				var str = jqXHR.responseText;
@@ -283,7 +277,6 @@ $.ajax({
 						// add 'minimized' class to hgraph to hide hgraph logo
 						if(!hGraph.hasClass('minimized')) hGraph.addClass('minimized');
 					}
-					// hmixer interactives spacing
 				}
 
 				$(window).resize(function(){
@@ -304,7 +297,6 @@ $.ajax({
 				$('.overall').css('font-size', '2rem');
 			    thisUser = Mixer.saveMetrics();
 			    inUser = false;
-			    console.log(thisUser);
    			}
 		}
 	}
@@ -351,17 +343,12 @@ fillData = function(){
 
 			complete: function(jqXHR) {
 
-				console.log('fillData complete, jqXHR readyState is ' + jqXHR.readyState);
 
 				if(jqXHR.readyState === 4) {
 
-				console.log('jqXHR readyState = 4');
-
 	       			if(jqXHR.status == 200){
 						var str = jqXHR.responseText;
-						console.log('str = ' + str);
 						var json = $.parseJSON(str);
-						console.log('jqXHR json = ' + json);
 						$('#name').val(json['name']);
 						$('#message').val(json['message']);
 	       			}
@@ -392,8 +379,6 @@ $(document.body).on('click','.login', (function(evt){
 	$('.skipButton').on('click', function(){
 		$('#alertify-ok').click();
 	});
-	
-	console.log('cookie email is null');
 	var showSubmit = function() {
 		alertify.set({
 			labels : {
@@ -419,20 +404,13 @@ $(document.body).on('click','.login', (function(evt){
 						async: false,
 			
 						complete: function(jqXHR) {
-			
-							console.log('fillData complete, jqXHR readyState is ' + jqXHR.readyState);
-			
 							if(jqXHR.readyState === 4) {
-			
-							console.log('jqXHR readyState = 4');
 			
 				       			if(jqXHR.status == 200){
 				       				alertify.success('Log in Successful');
 				       				$('.login').removeClass('login').addClass('logout').text('Sign Out')
 									var str = jqXHR.responseText;
-									console.log('str = ' + str);
 									var json = $.parseJSON(str);
-									console.log('jqXHR json = ' + json);
 									setCookie('email', email, 20*365);
 									setCookie('name',  json['name'], 20*365);
 									setCookie('message', json['message'], 20*365);
@@ -484,13 +462,10 @@ $(document.body).on('click','.login', (function(evt){
 /* submissions on metrics page */
 $('#submissions').on('click', (function(event) {
 	userarray = [];
-	console.log(inUser);
 	if(!inUser)
 		thisUser = Mixer.saveMetrics();
 	else
 		otherUser = Mixer.saveMetrics();
-
-	console.log(thisUser);
 	var User = Backbone.Model.extend({
 		initialize: function(){
 			this.isParseing = true;
@@ -587,7 +562,6 @@ $('#submissions').on('click', (function(event) {
 				if(usr.get('email') != undefined) {					
 					innerhtml.append('<tr data-email="' + usr.get('email') + '" id="hasemail" class="hasemail' + usr.get('user_id') + '" ><td>' + usr.get('full_name') + '</td><td>' + usr.get('user_id') + '</td><td>' + usr.get('message') + '</td><td>' + c[0] + '</td><td>' + u[0] + '</td></tr>');
 					innerhtml.find('.hasemail' + usr.get('user_id')).on ("click", function() {
-							console.log('in here'); 
 							div_onclick($(this).attr('data-email'), usr.get('full_name')); 
 						});
 				} else {
@@ -610,13 +584,11 @@ $('#submissions').on('click', (function(event) {
 			});
 		}
 	});
-	console.log('submissions on click');
 	
 	
 	
 	
 	var cookieEmail = getCookie('email');
-	console.log('email = ' + cookieEmail);
 
 	hRenderZone = document.getElementById("metrics")
 			|| document.getElementById("context")
@@ -630,7 +602,6 @@ $('#submissions').on('click', (function(event) {
 
 }));
 
-console.log($.getUrlVar('readonly'))
 var email = $.getUrlVar('email');
 if ($.getUrlVar('readonly')==='true') {
 	$('#submit').attr('value', 'Create New');
@@ -641,8 +612,27 @@ if ($.getUrlVar('readonly')==='true') {
 else {
 	/* ajax submit to server */
 	$('#submit').on('click', function(event){
-	
-		console.log('submit on click');
+	    d3.select( '.gender').selectAll('svg').append('rect').attr({
+	    		'x' : '-5',
+	    		'y' : '9',
+	    		'width' : '5',
+	    		'height' : '9',
+	    		'fill' : 'green',
+	    		'stroke' : 'none',
+	    		'stroke-width': '1',
+	    		'transform' : 'rotate(-45)'
+	    	});
+	    d3.select( '.gender').selectAll('svg').append('rect').attr({
+	    		'x' : '13',
+	    		'y' : '-11',
+	    		'width' : '5',
+	    		'height' : '13',
+	    		'fill' : 'green',
+	    		'stroke' : 'none',
+	    		'stroke-width': '1',
+	    		'transform' : 'rotate(45)'
+	    	});
+	    $('.gender').addClass('alreadyChecked');
 		if (cookieEmail == null) {
 			if(email == null && cookieEmail == null){
 				alertify.prompt("<div id='domMessage' class='darkClass'><h1>Please login with your Doximity Account</h1><br/><a class='doxButton'><img src='img/doximity-button-verify-dark.png'></img></a><br/><br/><br/><a class='skipButton'>Skip this step</a></div>", function(){
@@ -663,7 +653,6 @@ else {
 				});
 			
 			}
-			console.log('cookie email is null');
 			var showSubmit = function() {
 			alertify.set({
 				labels : {
@@ -679,8 +668,6 @@ else {
 					nm =  $('#name').val();
 					msg =  $('#message').val();
 	
-					console.log('email, name, message = ' + eml + ', ' + nm + ', ' + msg);
-	
 					if($('#email').val() != "" && $('#name').val() != "" && $('#message') != "") {
 	
 						/* if male and length is 4, append the default female data */
@@ -690,21 +677,12 @@ else {
 						gender = Mixer.getGender();
 	
 						metric = Mixer.getMetric();
-						for (index = 0; index < metric.length; index++) {
-	
-							console.log('metric index = ' + JSON.stringify(metric[index]) + ', ' + index);
-							
-	
-						}
-	
 						
 						metriclength = metric.length;
 	
 						mixer = JSON.stringify(Mixer.getMetric());
 	
 						length = mixer.length;
-						console.log(JSON.stringify(metric[0]));
-						console.log(Math.round((metric.length-1)/2));
 						if (metric[0]['name'] != metric[Math.round((metric.length-1)/2)]['name']) {
 	
 							/* get female metric from the default user */
@@ -723,7 +701,6 @@ else {
 							var i;
 							for (i = 0; i < len; i++) {
 								metric.push(secondMetric[i]);
-								console.log('in here')
 							}
 							// metric.push(metric[0]);
 							// metric.push(JSON.parse('{"name":"LDL","dayvalue":false,"healthyrange":[63,148],"totalrange":[0,160],"weight":5,"unitlabel":"mg/dl"}'));
@@ -759,15 +736,12 @@ else {
 								dataType: 'json',
 								async: false,
 								success: function(data) {
-									console.log('success, data is ' + data);
 									//$('#alerts').html('success');
 								},
 								failure: function(xhr, data){
-									console.log('fail');
 									//$('#alerts').html('failure');
 								},
 								complete: function(jqXHR) {
-									console.log(jqXHR);
 						       		if(jqXHR.readyState === 4) {
 										alertify.set({
 										labels : {ok : "submit"}
@@ -820,16 +794,12 @@ else {
 				dataType: 'json',
 				async: false,
 				success: function(data) {
-					console.log('success, data is ' + data);
 					//$('#alerts').html('success');
 				},
 				failure: function(xhr, data){
-					console.log('fail');
 					//$('#alerts').html('failure');
 				},
 				complete: function(jqXHR) {
-	
-					console.log('jqXHR = ' + jqXHR);
 	
 					if(jqXHR.readyState === 4) {
 	
@@ -850,14 +820,12 @@ else {
 		list = $('a.t')
 		list.removeClass('active');
 		$(this).addClass('active');
-		console.log($(this));
 		if($(this).attr('id') === 'home'){			
 			if(!inUser)
 				thisUser = Mixer.saveMetrics();
 			else
 				otherUser = Mixer.saveMetrics();
 			inUser = false;
-			console.log(Mixer.getMetric());
 			options = {
 			    allowTextSelection : false
 			};
