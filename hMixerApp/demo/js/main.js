@@ -261,25 +261,37 @@ $.ajax({
 				};
 
 				graph = new HGraph(opts);
-				$(window).resize(function(){
-					console.log("in here");
+
+				// hooks for page scale function function
+				var hmixer = $('section.middle.content'), // hmixer (contains interactives + config pane)
+					hGraph = hmixer.find('.preview'); // hgraph
+
+				function scale(){
 					if ($(window).width() >= 1280) {
-						graph.width = ($(window).width() - 939 <= 936) ? ($(window).width() - 939) : (936);
+						hmixer.width(900);
+						graph.width = $(window).width() - hmixer.width();
 						graph.height = ($(window).width() - 1097 <= 779) ? ($(window).width() - 1097) : (779);
+						// center hgraph at page center
+						hGraph.css({'top' : Math.max(0,($(window).height() - graph.height)/2)});
+						// hgraph is not minimized anymore
+						if(hGraph.hasClass('minimized')) hGraph.removeClass('minimized');
 					} else {
 						graph.height = 200;
 						graph.width = 200;
+						// expand hmixer window (98% for better look)
+						hmixer.css({'width': '98%'});
+						// add 'minimized' class to hgraph to hide hgraph logo
+						if(!hGraph.hasClass('minimized')) hGraph.addClass('minimized');
 					}
+					// hmixer interactives spacing
+				}
+
+				$(window).resize(function(){
+					scale();
 					graph.redraw();
 				
 				});
-				if ($(window).width() >= 1280) {
-					graph.width = ($(window).width() - 939 <= 936) ? ($(window).width() - 939) : (936);
-					graph.height = ($(window).width() - 1097 <= 779) ? ($(window).width() - 1097) : (779);
-				} else {
-					graph.height = 200;
-					graph.width = 200;
-				}
+				scale();
 				graph.initialize();
 				$('.g-toggle').on ('click', function(){
 					graph.zeroGraph();
@@ -833,7 +845,6 @@ else {
 		    		}
 			});
 		}
-	
 	});
 	$('a.t').on('click', function() {
 		list = $('a.t')
@@ -853,28 +864,5 @@ else {
 			Mixer.init(thisUser,options);
 		}
 	})
-	$('.submit2').css('left', $('.config').position().left-10);
-	if ($(document).width() >= 1280) {
-		$('.submit2').css('left', $('.config').position().left);
-	}
-	if($('.submit2').position().left + $('.submit2').width() > $(window).width())
-		{
-			$('.submit2').css('right', '0px');
-			$('.submit2').css('left', '');
-		}
-		else {
-			$('.submit2').css('right', '');
-		}
-	$(window).resize(function(){
-		$('.submit2').css('left', $('.config').position().left);
-		if($('.submit2').position().left + $('.submit2').width() > $(window).width())
-		{
-			$('.submit2').css('right', '0px');
-			$('.submit2').css('left', '');
-		}else {
-			$('.submit2').css('right', '');
-		}
-			
-	});
 }
 })();

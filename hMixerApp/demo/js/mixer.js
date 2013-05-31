@@ -1,6 +1,6 @@
 /* ******************************************************* *
- * Mixer.js - Mixer class definition for hGraph's hMixer   *
- * http://hgraph.org/hMixer                                *
+ * Mixer.js - Mixer class definition for Vollkorn's hMixer   *
+ * http://Vollkorn.org/hMixer                                *
  * Author(s):                                              *
  *  - Danny Hadley <danny@goinvo.com>                      *
  * License:                                                *
@@ -47,7 +47,7 @@ Defaults = D = {
     block            : {"class" : "interaction-lock"},
     chart_dimensions : {
         left   : 20,
-        top    : 40,
+        top    : 50,
         width  : 550,
         height : 95
     },
@@ -60,7 +60,7 @@ Defaults = D = {
     },
     svg_text : {
         "fill"           : "#9d9f9f",
-        "font-family"    : "'Droid Serif',serif",
+        "font-family"    : "'Vollkorn',serif",
         "font-size"      : "12px",
         "pointer-events" : "none"
     },
@@ -69,13 +69,13 @@ Defaults = D = {
     },
     range_rect : {
         "fill"   : "#97be8c",
-        "y"      : 40,
+        "y"      : 50,
         "height" : 94,
         "cursor" : "move"
     },
     bound_text : {
         "fill"           : "#404141",
-        "font-family"    : "'Droid Serif',serif",
+        "font-family"    : "'Vollkorn',serif",
         "font-size"      : "12px",
         "pointer-events" : "none",
         "text-anchor"    : "middle",
@@ -98,7 +98,7 @@ Defaults = D = {
         "x"              : 15,
         "y"              : 23,
         "fill"           : "#404141",
-        "font-family"    : "'Droid Serif',serif",
+        "font-family"    : "'Vollkorn',serif",
         "font-size"      : "32px",
         "pointer-events" : "none",
         "text-anchor"    : "front"
@@ -107,7 +107,7 @@ Defaults = D = {
         "x"              : 17,
         "y"              : 40,
         "fill"           : "#9d9f9f",
-        "font-family"    : "'Droid Serif',serif",
+        "font-family"    : "'Vollkorn',serif",
         "font-size"      : "12px",
         "pointer-events" : "none",
         "text-anchor"    : "front"
@@ -115,8 +115,8 @@ Defaults = D = {
     weight_bar : {
         "x1"     : 617.5,
         "x2"     : 617.5,
-        "y1"     : 40,
-        "y2"     : 135,
+        "y1"     : 50,
+        "y2"     : 145,
         "stroke" : "#c0c3c2"
     },
     weight_bounds : {
@@ -137,7 +137,7 @@ Defaults = D = {
     },
     curve_text : {
         "fill"           : "#fff",
-        "font-family"    : "'Droid Serif',serif",
+        "font-family"    : "'Vollkorn',serif",
         "font-size"      : "10px",
         "pointer-events" : "none",
         "text-anchor"    : "middle",
@@ -894,11 +894,11 @@ ui = function ( layer ) {
         
     layer.append("circle")
         .attr(D.weight_bounds)
-        .attr("cy", 40);
+        .attr("cy", 50);
     
     layer.append("circle")
         .attr(D.weight_bounds)
-        .attr("cy", 135);
+        .attr("cy", 145);
     
     layer.append("rect")
         .attr(D.svg_cover);
