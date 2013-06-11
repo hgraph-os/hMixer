@@ -266,14 +266,14 @@ $.ajax({
 						graph.width = $(window).width() - hmixer.width();
 						graph.height = ($(window).width() - 1097 <= 779) ? ($(window).width() - 1097) : (779);
 						// center hgraph at page center
-						//hGraph.css({'top' : Math.max(0,($(window).height() - graph.height)/2)});
+						hGraph.css({'top' : Math.max(0,($(window).height() - graph.height)/2)});
 						// hgraph is not minimized anymore
 						if(hGraph.hasClass('minimized')) hGraph.removeClass('minimized');
 					} else {
 						graph.height = 200;
 						graph.width = 200;
 						// expand hmixer window (98% for better look)
-						//hmixer.css({'width': '98%'});
+						hmixer.css({'width': '98%'});
 						// add 'minimized' class to hgraph to hide hgraph logo
 						if(!hGraph.hasClass('minimized')) hGraph.addClass('minimized');
 					}
