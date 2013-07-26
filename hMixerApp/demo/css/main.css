@@ -17,7 +17,7 @@
 *
 */
 
-body{ background: #F5F6F6; font-family: 'Vollkorn', serif; color: #9d9f9f; }
+body{ background: #f5f5f6; font-family: 'Vollkorn', serif; color: #9d9f9f; font-size: 15px; }
 
 div.no-vis{ 
     width: 0px; 
@@ -44,7 +44,7 @@ svg.healthscore text.overall {
 	cursor: pointer;
 }
 
-nav.main-nav{ margin-top: 0px; }
+nav.main-nav{ margin: 0 0 8px; }
 nav.main-nav ul{
     cursor: pointer;
     list-style: none;
@@ -74,7 +74,6 @@ nav.main-nav ul:after{
 nav.main-nav ul li{ 
     padding: 5px;
     height: 30px;
-    font-size: 1em;
 }
 nav.main-nav ul li a{ 
     text-decoration: none;
@@ -83,7 +82,7 @@ nav.main-nav ul li a{
     height: 20px;
     display: block;
     color: #3B3B3D;
-    padding: 3px 10px 3px 10px;
+    padding: 5px 10px 3px 10px;
 }
 nav.main-nav ul li a:hover,
 nav.main-nav ul li a.active{ background: rgba(0,0,0,0.075); }
@@ -93,7 +92,6 @@ section.config{
     /*background-color: #ececed;
     border-radius: 6px;
     padding: 25px 0px 25px 0px;*/
-    border-left: solid 1px #d3d3d3;
     float: right;
     cursor: default;
 }
@@ -115,7 +113,7 @@ section.config article.preview{
 }
 
 section.config article.demographics{ text-align: center; }
-section.config article.demographics h4{ font-size: 12px; color: #939695; font-weight: normal; }
+section.config article.demographics h4{ font-size: 10px; color: #939695; font-weight: normal; }
 
 section.config article.demographics div.block{
     margin-top: 20px;
@@ -132,7 +130,7 @@ section.config article.demographics div.block dl.g-title dt{padding: 3px 3px 0 0
 section.config article.demographics div.block dl.g-data{ color: #3c3f3d; background-color: white;}
 section.config article.demographics div.block dl.g-data dt{}
 section.config article.demographics div.block dl dt,
-section.config article.demographics div.block dl dd{ display: block; font-size: 16px; line-height: 1.5em; }
+section.config article.demographics div.block dl dd{ display: block; font-size: 15px; line-height: 1.5em; }
 
 section.config article.demographics div.block span{
 }
@@ -143,7 +141,7 @@ section.config article.demographics div.block dl dd{ }
 section.config article.demographics div.block dl dd button.g-toggle{        
     display: block;
     width: 120px;
-    font-size: 1em;
+    font-size: 15px;
     height: 30px;
     background: rgba(0,0,0,0.0);
     border-radius: 6px;
@@ -210,7 +208,7 @@ section.config article.demographics div.block input.height-input{
     line-height: 4px;
     font-family: 'Vollkorn', serif;
     color: #333;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 section.config article.demographics div.block input.email-input{
@@ -231,7 +229,7 @@ section.config article.demographics div.block input.email-input{
     line-height: 4px;
     font-family: 'Vollkorn', serif;
     color: #333;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 section.config article.demographics div.block.height dl dd{ width: 84px; position: relative; }
@@ -239,7 +237,7 @@ section.config article.demographics div.block.height dl dd span{
     position: absolute;
     display: block;
     color: #333;
-    font-size: 16px;
+    font-size: 15px;
     top: 3px;
 }
 section.config article.demographics div.block.height dl dd span:first-child{ left: 47%; }
@@ -249,17 +247,17 @@ section.config article.demographics div.block.submit{
    	position: fixed;
 	bottom: 0px;
 	background: #D4D4D5;
-	width: 250px;
-	height: 70px;
+	width: 248px;
+	height: 64px;
 }
 section.config article.demographics div.block.submit p{
-    font-size: 12px;
+    font-size: 10px;
     color: #9d9f9f;
     width: 100px;
 }
 
 #sub {
-    font-size: 12px;
+    font-size: 10px;
     color: #9d9f9f;
     width: 100px;
 }
@@ -270,14 +268,14 @@ section.config article.demographics div.block.height input[type="button"]{
     color: white;
     text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
     font-family: 'Vollkorn', serif;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 30px;
 
 
     height: 30px;
     border-radius: 4px;
     width: 140px;
-    margin-top: 5px;
+    margin-top: 6px;
     cursor: pointer;
     display: block;
     padding: 0px;
@@ -287,21 +285,29 @@ section.config article.demographics div.block.height input[type="button"]{
 section.config article.demographics div.block.submit input[type="button"]{
     background: #97be8c;
     
-    color: white;
-    text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
     font-family: 'Vollkorn', serif;
-    font-size: 1em;       
-    line-height: 30px;
+    font-size: 15px;       
+    line-height: 55px;
     
     width: 95%;
-	height: 80%;
+	height: 85%;
     
     border-radius: 4px;
     margin-top: 5px;
     cursor: pointer;
     display: block;
     padding: 0px;
-    text-transform: capitalize;
+
+    box-shadow: 0em 0.1em 0.1em #486e3d;
+}
+
+section.config article.demographics div.block.submit input[type="button"]:hover {
+  background: #85ac7a;
+}
+
+section.config article.demographics div.block.submit input[type="button"]:active {
+  background: #6c9261;
+  box-shadow: 0em -0.1em 0.1em #6c9261;
 }
 
 section.config article.demographics div.block.submit a{
@@ -310,7 +316,7 @@ section.config article.demographics div.block.submit a{
     font-family: 'Vollkorn', serif;
     margin-top: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     text-transform: capitalize;
     display: block;
 }
@@ -321,7 +327,7 @@ section.config article.demographics div.block.submission a{
     font-family: 'Vollkorn', serif;
     margin-top: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     text-transform: capitalize;
     cursor: pointer;
     display: block;
@@ -687,7 +693,7 @@ table th[class*="span"],
 section.config article.demographics div.block span.daily_label{
 	display: inline-block;
   margin-top: 2px;
-	font-size: 0.9em;
+	font-size: 15px;
 	position: relative;
 	top: -24px;
 	text-align: right;
@@ -696,26 +702,26 @@ section.config article.demographics div.block span.daily_label{
 	min-width: 40px
 }
 .header{
-	background: #EBECED;
-  padding-top:5px;
+	background: #131414;
+  padding:5px 15px 0;
 }
 
 .header .header-info {
 	float: right;
-	margin-top: 8px;
-	margin-right: 8px;
+	margin-top: 6px;
 	color: black;
 }
 
 .header .header-info > a {
 	text-decoration: none;
 	cursor: pointer;
-	color: #3c3f3d;
+	color: #9d9e9f;
+  margin-left: 14px;
 }
 
 .header .header-info > a:hover {
 	text-decoration: none;
-	color: black;
+	color: #bababb;
 }
 
 /* css for liquid column */
@@ -729,18 +735,18 @@ section.config article.demographics div.block span.daily_label{
 }
 
 section.config{
-  margin-left: -250px
+  margin-left: -250px;
+  background: #e9eaec;
 }
 
 /* hmixer logo css*/
 .logo-hmixer {
   display: inline-block;
-  margin-left: 15px;
   cursor: default;
 }
 
 .logo-hmixer .hscore{
-  color: #3c3f3d;
+  color: #9d9e9f;
 }
 
 .logo-hmixer .mixer{
@@ -748,7 +754,13 @@ section.config{
 }
 
 .logo-hmixer .hgraph{ 
-  font-size: 0.7em;
+  font-size: 10px;
+  margin-top: -4px;
+}
+
+.hgraph a {
+  color: #9d9e9f;
+  text-decoration: none;
 }
 
 /* hgraph logo */
@@ -756,7 +768,7 @@ section.config{
   position: fixed;
   top: 0px;
   left: 900px;
-  margin: 10px 0px 0px 10px;
+  margin: 55px 0px 0px 10px;
 }
 
 .minimized .logo-hgraph{
@@ -765,7 +777,6 @@ section.config{
 
 /* main section */
 section.middle.content{
-  border-right: 1px solid rgb(211, 211, 211);
   margin-left: 0px;
 }
 

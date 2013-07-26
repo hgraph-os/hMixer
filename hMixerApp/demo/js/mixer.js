@@ -61,7 +61,7 @@ Defaults = D = {
     svg_text : {
         "fill"           : "#9d9f9f",
         "font-family"    : "'Vollkorn',serif",
-        "font-size"      : "12px",
+        "font-size"      : "10px",
         "pointer-events" : "none"
     },
     svg_axis : { 
@@ -76,7 +76,7 @@ Defaults = D = {
     bound_text : {
         "fill"           : "#404141",
         "font-family"    : "'Vollkorn',serif",
-        "font-size"      : "12px",
+        "font-size"      : "15px",
         "pointer-events" : "none",
         "text-anchor"    : "middle",
         "y"              : 30
@@ -84,14 +84,14 @@ Defaults = D = {
     bound_outer_circle : {
         "r"      : 9,
         "fill"   : "#fff",
-        "cx"     : 0,
+        "cx"     : .35,
         "cy"     : 0,
         "filter" : "url(#shadow)"
     },
     bound_inner_circle : {
         "r"    : 5,
         "fill" : "#97be8c",
-        "cy"   : 0,
+        "cy"   : .3,
         "cx"   : 0
     },
     title_text : {
@@ -151,7 +151,7 @@ Defaults = D = {
     input_line : {
         "stroke"           : "#6c6e6d",
         "stroke-dasharray" : "3,3",
-        "stroke-width"	   : "3"
+        "stroke-width"	   : "2"
     },
     input_score_circle : {
         "fill" : "#e16851",
@@ -1015,8 +1015,8 @@ data = function ( layer ) {
     weightNode
         .append("circle")
         .attr(D.bound_outer_circle)
-        .attr("r", 16.5)
-        .attr("cx", 130);
+        .attr("r", 16)
+        .attr("cx", 129.5);
     
     
     
@@ -1025,6 +1025,7 @@ data = function ( layer ) {
         .attr(D.bound_inner_circle)
         .attr("fill", "#585a5a")
         .attr("r", 12.5)
+        .attr("cy", .45)
         .attr("cx", 130);
     
     leftBound.append("text").attr(D.bound_text);
