@@ -1844,7 +1844,7 @@ _renderGenderData = function ( ){
     
     var list = $('.block.middle.height');
     list.html('');
-    list.append('<span class="daily_title">Patient Synthesizer</span><br /><br />')
+    list.append('<span class="daily_title">Patient Synthesizer</span><br />')
     /* loop through the metrics */        
     for(j = 0; j < mlist.length; j++){
                 

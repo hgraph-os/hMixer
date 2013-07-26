@@ -40,17 +40,16 @@ svg.healthscore text.overall {
   font-weight: bold;
 }
 .user-table  tr:hover{
-	background-color: lightgrey;
-	cursor: pointer;
+  background-color: lightgrey;
+  cursor: pointer;
 }
 
-nav.main-nav{ margin: 0 0 8px; }
+nav.main-nav{ margin: 0 0 8px; float: left; }
 nav.main-nav ul{
     cursor: pointer;
     list-style: none;
     display: inline-block;
     padding: 0px 10px 0px 10px;
-    margin-top: 10px;
     position: relative;
 }
 nav.main-nav ul:after{
@@ -73,7 +72,7 @@ nav.main-nav ul:after{
 }
 nav.main-nav ul li{ 
     padding: 5px;
-    height: 30px;
+    height: 20px;
 }
 nav.main-nav ul li a{ 
     text-decoration: none;
@@ -81,11 +80,11 @@ nav.main-nav ul li a{
     line-height: 20px;
     height: 20px;
     display: block;
-    color: #3B3B3D;
+    color: #9d9e9f;
     padding: 5px 10px 3px 10px;
 }
 nav.main-nav ul li a:hover,
-nav.main-nav ul li a.active{ background: rgba(0,0,0,0.075); }
+nav.main-nav ul li a.active{ background: #9d9f9f; color: #404141; }
 section.config{ 
     width: 248px; 
     min-height: 300px; 
@@ -125,8 +124,10 @@ section.config article.demographics div.block.gender{
     overflow: hidden;
 }
 
+
 section.config article.demographics div.block dl.g-title{ color: #3c3f3d; background-color: lightgray;}
 section.config article.demographics div.block dl.g-title dt{padding: 3px 3px 0 0;}
+
 section.config article.demographics div.block dl.g-data{ color: #3c3f3d; background-color: white;}
 section.config article.demographics div.block dl.g-data dt{}
 section.config article.demographics div.block dl dt,
@@ -137,6 +138,7 @@ section.config article.demographics div.block span{
 
 section.config article.demographics div.block dl dt,
 section.config article.demographics div.block dl dd{ }
+
 
 section.config article.demographics div.block dl dd button.g-toggle{        
     display: block;
@@ -151,9 +153,10 @@ section.config article.demographics div.block dl dd button.g-toggle{
                 0px 0px 1px 1px rgba(255, 255, 255, 0.0);
 }
 
-section.config article.demographics div.block dl dd button.g-toggle svg{        
-	width: 20px;
-	height: 20px;
+
+section.footer .g-toggle svg{        
+  width: 20px;
+  height: 20px;
 }
 
 section.config article.demographics div.block dl dd button.g-toggle:first-child{ margin-right: 10px; }
@@ -244,11 +247,11 @@ section.config article.demographics div.block.height dl dd span:first-child{ lef
 section.config article.demographics div.block.height dl dd span:last-child{ left: 98%; }
 
 section.config article.demographics div.block.submit{
-   	position: fixed;
-	bottom: 0px;
-	background: #D4D4D5;
-	width: 248px;
-	height: 64px;
+    position: fixed;
+  bottom: 0px;
+  background: #D4D4D5;
+  width: 248px;
+  height: 64px;
 }
 section.config article.demographics div.block.submit p{
     font-size: 10px;
@@ -261,6 +264,178 @@ section.config article.demographics div.block.submit p{
     color: #9d9f9f;
     width: 100px;
 }
+
+/* NEW STUFF TO MOVE - TEMP */
+section.footer article.demographics{ }
+section.footer article.demographics h4{ font-size: 10px; font-weight: normal; }
+
+section.footer article.demographics div.block{
+    margin-top: 20px;
+}
+section.footer article.demographics div.block.gender{
+    overflow: hidden;
+}
+
+section.footer article.demographics div.submit-form { padding-left: 15px; }
+
+section.footer article.demographics div.block dl.g-title{ float: left; width: 250px; }
+section.footer article.demographics div.block dl.g-title dt{padding: 0;}
+
+section.footer article.demographics div.block dl.g-data{ }
+section.footer article.demographics div.block dl.g-data dt{}
+section.footer article.demographics div.block dl dt,
+section.footer article.demographics div.block dl dd{ font-size: 15px; line-height: 1.5em; }
+
+section.footer article.demographics div.block span{
+}
+
+section.footer article.demographics div.block dl dt,
+section.footer article.demographics div.block dl dd{ }
+
+section.footer article.demographics div.block dl dt {
+  float: left;
+  width: 100px;
+}
+
+section.footer article.demographics div.block dl dd {
+  float: left;
+  width: 150px;
+}
+
+
+section.footer article.demographics div.block dl dd button.g-toggle{        
+    /* display: block;
+    width: 120px;*/
+    font-size: 15px;
+    height: 30px;
+    background: rgba(0,0,0,0.0);
+    cursor: pointer;
+}
+
+
+section.footer .g-toggle svg{        
+  width: 20px;
+  height: 20px;
+}
+
+section.footer article.demographics div.block dl dd button.g-toggle:first-child{ margin-right: 10px; }
+section.footer article.demographics div.block.gender dl dd{ 
+    width: 100px;
+    margin-top: 0px;
+}
+
+section.footer article.demographics div.block dl dd button.g-toggle.active,
+section.footer article.demographics div.block dl dd button.g-toggle:hover{
+    background: red;
+}
+
+section.footer article.demographics div.block dl dd button.g-toggle span{
+    display: block;
+    width: 60px;
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+}
+
+section.footer article.demographics div.block dl dd button.g-toggle.active span,
+section.footer article.demographics div.block dl dd button.g-toggle span:hover{ opacity: 0.8; }
+
+section.footer article.demographics div.block dl dd button.g-toggle.male span{
+    background-size: 24px 65px;
+    background-image: url(../img/male1.png);
+}
+section.footer article.demographics div.block dl dd button.g-toggle.female span{
+    background-image: url(../img/woman1.png);
+}
+
+section.footer article.demographics div.block input.height-input{
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5), 
+                inset 1px 1px 1px rgba(0,0,0,0.1);
+                
+    display: block;
+    position: relative;
+    
+    margin: 5px 5px 0px 5px;
+    text-align: center;
+    line-height: 4px;
+    font-family: 'Vollkorn', serif;
+    font-size: 15px;
+  }
+
+section.footer article.demographics div.block input.email-input{
+    width: 140px;
+    height: 20px;
+    padding: 5px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 0px 1px rgba(255,255,255,0.5), 
+                inset 1px 1px 1px rgba(0,0,0,0.1);
+                
+    display: block;
+    position: relative;
+    
+    margin: 5px 5px 0px 15px;
+    text-align: center;
+    line-height: 4px;
+    font-family: 'Vollkorn', serif;
+    font-size: 15px;
+}
+
+section.footer article.demographics div.block.height dl dd{ width: 84px; position: relative; }
+section.footer article.demographics div.block.height dl dd span{
+    position: absolute;
+    display: block;
+    font-size: 15px;
+    top: 3px;
+}
+section.footer article.demographics div.block.height dl dd span:first-child{ left: 47%; }
+section.footer article.demographics div.block.height dl dd span:last-child{ left: 98%; }
+
+section.footer article.demographics div.block.submit{
+    position: fixed;
+  bottom: 0px;
+  background: #D4D4D5;
+  width: 248px;
+  height: 64px;
+}
+section.footer article.demographics div.block.submit p{
+    font-size: 10px;
+    color: #9d9f9f;
+    width: 100px;
+}
+
+section.footer article.demographics dd button {
+  color: #9d9f9f;
+}
+
+section.footer article.demographics div.block.height input[type="button"]{
+    background: #6d89b4;
+
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.9);
+    font-family: 'Vollkorn', serif;
+    font-size: 15px;
+    line-height: 30px;
+
+
+    height: 30px;
+    border-radius: 4px;
+    width: 140px;
+    margin-top: 6px;
+    cursor: pointer;
+    display: block;
+    padding: 0px;
+    text-transform: capitalize;
+}
+}
+/* END NEW STUFF */
 
 section.config article.demographics div.block.height input[type="button"]{
     background: #6d89b4;
@@ -282,32 +457,31 @@ section.config article.demographics div.block.height input[type="button"]{
     text-transform: capitalize;
 }
 
-section.config article.demographics div.block.submit input[type="button"]{
+section.footer div.block.submit input[type="button"]{
     background: #97be8c;
     
+    float: right;
     font-family: 'Vollkorn', serif;
     font-size: 15px;       
     line-height: 55px;
     
-    width: 95%;
-	height: 85%;
+    width: 175px;
+    height: 50px;
     
-    border-radius: 4px;
-    margin-top: 5px;
+    border-radius: 2px;
+    margin: 5px;
     cursor: pointer;
     display: block;
     padding: 0px;
-
-    box-shadow: 0em 0.1em 0.1em #486e3d;
 }
 
-section.config article.demographics div.block.submit input[type="button"]:hover {
-  background: #85ac7a;
+section.footer div.block.submit input[type="button"]:hover {
+  background: #a6cc9b;
 }
 
-section.config article.demographics div.block.submit input[type="button"]:active {
-  background: #6c9261;
-  box-shadow: 0em -0.1em 0.1em #6c9261;
+section.footer div.block.submit input[type="button"]:active {
+  background: #b2d9a7;
+  box-shadow: inset 0em 0.1em 0.1em #486e3d;
 }
 
 section.config article.demographics div.block.submit a{
@@ -335,7 +509,7 @@ section.config article.demographics div.block.submission a{
 
 section.main,
 section.metrics{ 
-    width: 648px;
+    width: 650px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -659,69 +833,87 @@ table th[class*="span"],
 }
 
 .table .loading {
-	  text-align: center;
+    text-align: center;
 }
 .darkClass {
-	position: relative;
-	top: 30px;
+  position: relative;
+  top: 30px;
 }
 .alertify-log-success {
-	background: #609C4F;
+  background: #609C4F;
 }
 .daily_input_span{
-	padding-left: 10px;
-	width: 80%;
-	height: 25px;
-	font-size: 15px;
-	border: solid 1px #9d9f9f;
-	border-radius: 5px;
-	display: inline-block;
+  padding: 0 10px 0 7px;
+  width: 87%;
+  height: 25px;
+  font-size: 15px;
+  box-shadow: inset 0em 0.1em 0.1em #a9aaab;
+  border-radius: 2px;
+  display: inline-block;
 }
 .daily_name{
-	display: block;
-	color: #3c3f3d;
-	float: left;
-	margin-left: 20px;
-	margin-top: 15px;
+  display: block;
+  color: #3c3f3d;
+  float: left;
+  margin-left: 14px;
+  margin-top: 15px;
 }
 .daily_title{
-	display: block;
-	color: #3c3f3d;
-	float: left;
-	margin-left: 20px;
+  display: block;
+  color: #3c3f3d;
+  float: left;
+  margin-left: 14px;
 }
 section.config article.demographics div.block span.daily_label{
-	display: inline-block;
+  display: inline-block;
   margin-top: 2px;
-	font-size: 15px;
-	position: relative;
-	top: -24px;
-	text-align: right;
-	float: right;
-	right: 30px;
-	min-width: 40px
+  font-size: 15px;
+  position: relative;
+  top: -22px;
+  text-align: right;
+  float: right;
+  right: 18px;
+  min-width: 40px
 }
 .header{
-	background: #131414;
-  padding:5px 15px 0;
+  background: #131414;
+  box-shadow: 0em 0.1em 0.3em #6d6d6f;
+  padding:5px 0 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .header .header-info {
-	float: right;
-	margin-top: 6px;
-	color: black;
+  float: right;
+  margin: 9px 15px 0 0;
+  color: black;
 }
 
 .header .header-info > a {
-	text-decoration: none;
-	cursor: pointer;
-	color: #9d9e9f;
+  text-decoration: none;
+  cursor: pointer;
+  color: #9d9e9f;
   margin-left: 14px;
 }
 
 .header .header-info > a:hover {
-	text-decoration: none;
-	color: #bababb;
+  text-decoration: none;
+  color: #bababb;
+}
+
+.footer{
+  background: #131414;
+  box-shadow: 0em -0.1em 0.3em #6d6d6f;
+  bottom: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.footer .demographics {
+  float: left;
 }
 
 /* css for liquid column */
@@ -730,7 +922,7 @@ section.config article.demographics div.block span.daily_label{
 }
 
 .hmixer-centering{
-	border-left: 1px solid #EBECED;
+  border-left: 1px solid #EBECED;
   margin-right: 250px;
 }
 
@@ -742,7 +934,10 @@ section.config{
 /* hmixer logo css*/
 .logo-hmixer {
   display: inline-block;
+  float: left;
+  width: 320px;
   cursor: default;
+  padding: 3px 0 0 15px;
 }
 
 .logo-hmixer .hscore{
@@ -777,7 +972,7 @@ section.config{
 
 /* main section */
 section.middle.content{
-  margin-left: 0px;
+  margin: 50px 0 50px;
 }
 
 input, button{
@@ -787,12 +982,12 @@ input, button{
 
 
 @media only screen and (min-width: 1280px){
-	.content {
-		margin-left: 0px;
-	}
-	.preview {
-		position: fixed;
-		left: 955px;
-	}
+  .content {
+    margin-left: 0px;
+  }
+  .preview {
+    position: fixed;
+    left: 955px;
+  }
 }
 

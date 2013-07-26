@@ -23,8 +23,8 @@
   <script type="text/javascript" src="js/lib/modernizr.mq.js"></script>
   <script type="text/javascript" src="js/lib/jquery.joyride-2.0.3.js"></script>
   <script type="text/javascript">
-		//google analytics
-		(function (i, s, o, g, r, a, m) {
+    //google analytics
+    (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
@@ -51,6 +51,17 @@
         <!-- <div class="hgraph">Powering <a href="http://www.hgraph.org" target="_blank">hGraph</a></div> -->
       </div>
 
+      <nav class="main-nav middle">
+        <ul class="cf middle">
+          <li class="f">
+            <a class="active t" id='home'>Your hScore</a>
+          </li>
+          <li class="f submission">            
+           <a class="t feedback" id="submissions">Community Submissions</a>
+         </li>
+       </ul>
+      </nav>
+
       <span class="header-info">
         <a class="login">Sign In</a>
         <a href="http://www.hgraph.org/about.html" class="feedback">About</a>
@@ -63,16 +74,7 @@
       <div class="f hmixer-wrapper">
         <div class="hmixer-centering">
           <section class="main cf">
-            <nav class="main-nav middle">
-              <ul class="cf middle">
-                <li class="f">
-                  <a class="active t" id='home'>Your hScore</a>
-                </li>
-                <li class="f submission">	           
-                 <a class="t feedback" id="submissions">Community Submissions</a>
-               </li>
-             </ul>
-           </nav>
+            
 
            <section class="metrics" id="hMixer"> </section>
          </section>
@@ -89,7 +91,17 @@
         <figure id="viz" class="content_inset healthgraph detailed"> </figure>
       </article>
       <article class="demographics middle">
-       <div class="submit-form">
+       <div class="block middle height">
+
+       </div>
+  </div>
+</article>
+
+</section>
+</section>
+<section class="footer">
+    <article class="demographics">
+    <div class="submit-form">
         <div class="block middle gender">
           <dl class="g-title">
            <dt>
@@ -97,41 +109,38 @@
           </dt>
         </dl>
         <dl class="g-data">
-          <dt>Male</dt>
-          <dd class="cf middle">
-            <button class="f active g-toggle t" data-gender="male">
-              <svg>
-                <circle cx="10" cy="10" r="6"
-                fill="white" stroke="black" stroke-width="1"  />
-              </svg>
-              Adult
-            </button>
-          </dd>
-          <dt>Female</dt>
-          <dd class="cf middle">
-            <button class="f g-toggle t" data-gender="female">
-             <svg>
-               <circle cx="10" cy="10" r="6"
-               fill="white" stroke="black" stroke-width="1"  />
-             </svg>
-
-             Adult
-           </button>
-         </dd>
+          <div>
+            <dt>Male</dt>
+            <dd class="cf middle">
+              <button class="f active g-toggle t" data-gender="male">
+                <svg>
+                  <circle cx="10" cy="10" r="6"
+                  fill="white" stroke="black" stroke-width="1"  />
+                </svg>
+                Adult
+              </button>
+            </dd>
+          </div>
+          <div>
+            <dt>Female</dt>
+            <dd class="cf middle">
+              <button class="f g-toggle t" data-gender="female">
+               <svg>
+                 <circle cx="10" cy="10" r="6"
+                 fill="white" stroke="black" stroke-width="1"  />
+               </svg>
+               Adult
+             </button>
+           </dd>
+         </div>
        </dl>
      </div>
+   </article>
 
-     <div class="block middle height">
 
-     </div>
-
-     <div class="block middle submit submit2">
-      <input class="submit middle" value="Submit hScore" type="button" id="submit">
-    </div>
+  <div class="block middle submit submit2">
+    <input class="submit middle" value="Submit hScore" type="button" id="submit">
   </div>
-</article>
-
-</section>
 </section>
 <ol id="joyRideTipContent">
   <li data-text="Next" class="custom">
