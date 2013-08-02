@@ -272,8 +272,8 @@ $.ajax({
 					} else {
 						graph.height = 200;
 						graph.width = 200;
-						// expand hmixer window (98% for better look)
-						hmixer.css({'width': '98%'});
+						// expand hmixer window (100% for better look)
+						hmixer.css({'width': '100%'});
 						// add 'minimized' class to hgraph to hide hgraph logo
 						if(!hGraph.hasClass('minimized')) hGraph.addClass('minimized');
 					}

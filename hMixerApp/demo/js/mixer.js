@@ -1,6 +1,6 @@
 /* ******************************************************* *
- * Mixer.js - Mixer class definition for Vollkorn's hMixer   *
- * http://Vollkorn.org/hMixer                                *
+ * Mixer.js - Mixer class definition for Vollkorn's hMixer *
+ * http://Vollkorn.org/hMixer                              *
  * Author(s):                                              *
  *  - Danny Hadley <danny@goinvo.com>                      *
  * License:                                                *
@@ -1670,8 +1670,8 @@ _genderToggle = function ( ) {
 	    	_finished = 100;
 	   	if(!$('.gender button.active').hasClass('alreadyChecked')) {
 		    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
-		    		'x' : '-5',
-		    		'y' : '9',
+		    		'x' : '-7',
+		    		'y' : '11',
 		    		'width' : '5',
 		    		'height' : '9',
 		    		'fill' : 'green',
@@ -1680,8 +1680,8 @@ _genderToggle = function ( ) {
 		    		'transform' : 'rotate(-45)'
 		    	});
 		    d3.select( '.gender').selectAll('button.active').selectAll('svg').append('rect').attr({
-		    		'x' : '13',
-		    		'y' : '-11',
+		    		'x' : '15',
+		    		'y' : '-9',
 		    		'width' : '5',
 		    		'height' : '13',
 		    		'fill' : 'green',

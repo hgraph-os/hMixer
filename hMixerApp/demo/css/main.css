@@ -76,7 +76,7 @@ nav.main-nav ul li{
 }
 nav.main-nav ul li a{ 
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 3px;
     line-height: 20px;
     height: 20px;
     display: block;
@@ -86,7 +86,7 @@ nav.main-nav ul li a{
 nav.main-nav ul li a:hover,
 nav.main-nav ul li a.active{ background: #9d9f9f; color: #404141; }
 section.config{ 
-    width: 248px; 
+    width: 210px; 
     min-height: 300px; 
     /*background-color: #ececed;
     border-radius: 6px;
@@ -270,7 +270,7 @@ section.footer article.demographics{ }
 section.footer article.demographics h4{ font-size: 10px; font-weight: normal; }
 
 section.footer article.demographics div.block{
-    margin-top: 20px;
+    margin-top: 5px;
 }
 section.footer article.demographics div.block.gender{
     overflow: hidden;
@@ -278,13 +278,14 @@ section.footer article.demographics div.block.gender{
 
 section.footer article.demographics div.submit-form { padding-left: 15px; }
 
-section.footer article.demographics div.block dl.g-title{ float: left; width: 250px; }
-section.footer article.demographics div.block dl.g-title dt{padding: 0;}
+section.footer article.demographics div.block dl.g-title{ float: left; }
+section.footer article.demographics div.block dl.g-title dt{padding: 0; width: 130px;}
 
-section.footer article.demographics div.block dl.g-data{ }
+section.footer article.demographics div.block dl.g-data{ width: 350px; }
+section.footer article.demographics div.block dl.g-data div { float: left; width: 100px; }
 section.footer article.demographics div.block dl.g-data dt{}
 section.footer article.demographics div.block dl dt,
-section.footer article.demographics div.block dl dd{ font-size: 15px; line-height: 1.5em; }
+section.footer article.demographics div.block dl dd{ font-size: 15px; }
 
 section.footer article.demographics div.block span{
 }
@@ -292,10 +293,7 @@ section.footer article.demographics div.block span{
 section.footer article.demographics div.block dl dt,
 section.footer article.demographics div.block dl dd{ }
 
-section.footer article.demographics div.block dl dt {
-  float: left;
-  width: 100px;
-}
+section.footer article.demographics div.block dl dt { }
 
 section.footer article.demographics div.block dl dd {
   float: left;
@@ -309,6 +307,7 @@ section.footer article.demographics div.block dl dd button.g-toggle{
     font-size: 15px;
     height: 30px;
     background: rgba(0,0,0,0.0);
+    padding-right: 15px;
     cursor: pointer;
 }
 
@@ -326,7 +325,9 @@ section.footer article.demographics div.block.gender dl dd{
 
 section.footer article.demographics div.block dl dd button.g-toggle.active,
 section.footer article.demographics div.block dl dd button.g-toggle:hover{
-    background: red;
+    background: #9d9f9f;
+    border-radius: 3px;
+    color: #3c3f3d;
 }
 
 section.footer article.demographics div.block dl dd button.g-toggle span{
@@ -465,7 +466,7 @@ section.footer div.block.submit input[type="button"]{
     font-size: 15px;       
     line-height: 55px;
     
-    width: 175px;
+    width: 200px;
     height: 50px;
     
     border-radius: 2px;
@@ -511,7 +512,11 @@ section.main,
 section.metrics{ 
     width: 650px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 20px auto 0;
+}
+
+section.main span {
+    margin-left: 15px;
 }
 
 article.metric{
@@ -860,7 +865,6 @@ table th[class*="span"],
 }
 .daily_title{
   display: block;
-  color: #3c3f3d;
   float: left;
   margin-left: 14px;
 }
@@ -872,7 +876,7 @@ section.config article.demographics div.block span.daily_label{
   top: -22px;
   text-align: right;
   float: right;
-  right: 18px;
+  right: 12px;
   min-width: 40px
 }
 .header{
@@ -960,10 +964,10 @@ section.config{
 
 /* hgraph logo */
 .logo-hgraph{
-  position: fixed;
-  top: 0px;
-  left: 900px;
-  margin: 55px 0px 0px 10px;
+    position: fixed;
+    top: 0px;
+    left: 910px;
+    margin: 70px 0px 0px 10px;
 }
 
 .minimized .logo-hgraph{
@@ -978,6 +982,11 @@ section.middle.content{
 input, button{
   font-family: 'Vollkorn', serif;
   color: #3c3f3d;
+}
+
+section.middle a {
+    color: #9d9e9f;
+    text-decoration: none;
 }
 
 
