@@ -887,6 +887,7 @@ section.config article.demographics div.block span.daily_label{
   top: 0;
   width: 100%;
   min-width: 960px;
+  z-index: 1;
 }
 
 .header .header-info {
