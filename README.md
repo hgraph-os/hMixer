@@ -22,3 +22,7 @@ To-Do's
 [ ] Get Physician feedback on healthy metrics and algorithm for scoring<br />
 [ ] What's v02<br />
 [ ] UI input scalable healthy ranges with granular demographics (age ranges, not just gender)
+
+### License ###
+
+hGraph is licensed under [Apache 2.0](https://github.com/goinvo/hGraph/blob/master/LICENSE).
