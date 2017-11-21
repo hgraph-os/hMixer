@@ -25,4 +25,4 @@ To-Do's
 
 ### License ###
 
-hGraph is licensed under [Apache 2.0](https://github.com/goinvo/hGraph/blob/master/LICENSE).
+hGraph is [Apache 2.0](https://github.com/goinvo/hGraph/blob/master/LICENSE) licensed.
