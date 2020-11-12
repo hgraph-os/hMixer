@@ -1,7 +1,7 @@
 hMixer
 ======
 
-A tool for healthcare professional's to quantify how individual factors impact overall health.
+A tool for healthcare professionals to quantify how individual factors impact overall health.
 
 ### License ###
 
