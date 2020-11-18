@@ -8,6 +8,8 @@ hMixer was created as a feedback tool for:
 - Defining key metrics to display on the [hGraph](https://github.com/hgraph-os/hGraph)
 - Defining healthy ranges for health metrics to provide a default for [hGraph](https://github.com/hgraph-os/hGraph)
 
+The results of submissions could be viewed as a crowdsourced way to define a default hGraph and hScore for humans.
+
 ### License ###
 
 hMixer is [Apache 2.0](https://github.com/goinvo/hMixer/blob/master/LICENSE) licensed.
