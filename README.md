@@ -19,5 +19,4 @@ Founders/Designers: [GoInvo](http://www.goinvo.com/) is a digital design studio 
 [hgraph@goinvo.com](mailto:hgraph@goinvo.com)
 
 ### License ###
-
 hMixer is [Apache 2.0](https://github.com/goinvo/hMixer/blob/master/LICENSE) licensed.
